@@ -42,18 +42,15 @@ $json = json_decode($data, true);
 for($i=0; $i<count($json['results']); $i++) {
     echo "Index is " . $i . " and the name is " . $json['results'][$i]["name"] . "<BR>";
 }
-?>
 
-<?php 
-/*Split the array into chunks of 50 pokemons, limit the result to only show the 3rd group of 50 pokemons.*/
-$data = file_get_contents("data.json"); 
-$input_array = json_decode($data,true);
-/*
-$output = array_slice($json,3, 50);*/
-/*print_r(array_slice($json, 3, 50));*/
-/*print_r(str_split($json,3));*/
-
+$new_arr = array_chunk($json['results'], 50);
+echo `<h4>3rd group of 50 pokemons</h4>`;
+echo `<pre>`;
+print_r($new_arr[2]);
+echo `<pre>`;
+echo `<hr>`;
 
 ?>
+
 </body>
 </html>
